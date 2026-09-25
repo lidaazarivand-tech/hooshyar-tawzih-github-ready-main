@@ -23,3 +23,8 @@ release-signing.*
 android/*.keystore
 android/*.jks
 
+# Archives & Temporary Caches
+*.zip
+sistani_cache/
+
+
