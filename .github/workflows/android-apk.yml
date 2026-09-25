@@ -1,0 +1,71 @@
+name: Build Hooshyar Android APK
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build web app
+        run: npm run build
+
+      - name: Sync Capacitor Android
+        run: npx cap sync android
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: gradle
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make Gradle executable
+        working-directory: android
+        run: chmod +x gradlew
+
+      - name: Create temporary release signing key
+        run: |
+          keytool -genkeypair \
+            -alias hooshyar-release \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -keystore android/hooshyar-release.keystore \
+            -storepass hooshyar-ci-password \
+            -keypass hooshyar-ci-password \
+            -dname "CN=Hooshyar CI, OU=Android, O=Hooshyar, L=Tehran, ST=Tehran, C=IR"
+
+      - name: Build signed Release APK
+        working-directory: android
+        env:
+          KEYSTORE_FILE: ${{ github.workspace }}/android/hooshyar-release.keystore
+          KEYSTORE_PASSWORD: hooshyar-ci-password
+          KEY_ALIAS: hooshyar-release
+          KEY_PASSWORD: hooshyar-ci-password
+        run: ./gradlew assembleRelease
+
+      - name: Upload signed Release APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Hooshyar-Release-APK
+          path: android/app/build/outputs/apk/release/app-release.apk
+          if-no-files-found: error

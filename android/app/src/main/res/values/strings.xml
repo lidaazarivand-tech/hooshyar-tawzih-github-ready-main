@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">هوشیار</string>
+    <string name="title_activity_main">هوشیار</string>
+    <string name="package_name">com.adelapp.hooshyar</string>
+    <string name="custom_url_scheme">com.adelapp.hooshyar</string>
+</resources>

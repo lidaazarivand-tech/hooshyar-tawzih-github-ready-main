@@ -1,0 +1,25 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+*.tmp
+*.bak
+*.log
+.env*
+!.env.example
+
+# Keystores & Signing Keys
+*.jks
+*.keystore
+release-signing.*
+android/*.keystore
+android/*.jks
+

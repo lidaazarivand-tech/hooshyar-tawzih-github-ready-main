@@ -1,0 +1,52 @@
+{
+  "name": "هوشیار | همراه روزانه و تقویم هوشمند",
+  "short_name": "هوشیار",
+  "description": "برنامه ریزی هوشمند، زندگی بهتر | تقویم، اوقات شرعی، قرآن، یادداشت‌ها و مدیریت شخصی",
+  "id": "/",
+  "start_url": "/?tab=home",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#071728",
+  "theme_color": "#123C35",
+  "shortcuts": [
+    {
+      "name": "تقویم",
+      "url": "/?tab=calendar",
+      "icons": [{ "src": "/pwa-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "کارها",
+      "url": "/?tab=tasks",
+      "icons": [{ "src": "/pwa-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "یادآورها",
+      "url": "/?tab=reminders",
+      "icons": [{ "src": "/pwa-192x192.png", "sizes": "192x192" }]
+    }
+  ],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

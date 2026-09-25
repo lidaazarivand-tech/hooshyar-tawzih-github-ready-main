@@ -1,0 +1,343 @@
+@import "@fontsource/vazirmatn/300.css";
+@import "@fontsource/vazirmatn/400.css";
+@import "@fontsource/vazirmatn/500.css";
+@import "@fontsource/vazirmatn/600.css";
+@import "@fontsource/vazirmatn/700.css";
+@import "@fontsource/vazirmatn/800.css";
+@import "tailwindcss";
+
+/* Local Offline Fonts */
+@font-face {
+  font-family: 'Shabnam';
+  src: url('/fonts/Shabnam.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Shabnam';
+  src: url('/fonts/Shabnam-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sahel';
+  src: url('/fonts/Sahel.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sahel';
+  src: url('/fonts/Sahel-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Samim';
+  src: url('/fonts/Samim.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Samim';
+  src: url('/fonts/Samim-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Parastoo';
+  src: url('/fonts/Parastoo.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Parastoo';
+  src: url('/fonts/Parastoo-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-app: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--font-app);
+  font-feature-settings: "cv01", "ss01";
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+
+  /* Unified Design Token System */
+  --bg-app: #F7F4EC;
+  --surface-card: #FFFFFF;
+  --surface-elevated: #FFFFFF;
+  --surface-muted: #F7F4EC;
+  --surface-interactive: #E9E5DA;
+  
+  --text-primary: #1C2523;
+  --text-secondary: #59635F;
+  --text-muted: #838E8A;
+  
+  --border-color: #D9DED9;
+  --border-focus: #123C35;
+  
+  --brand-primary: #123C35;
+  --brand-primary-dark: #0C2E29;
+  --brand-primary-light: #1B5E52;
+  --brand-gold: #C49A5A;
+  --brand-gold-hover: #B08644;
+  
+  --status-success: #15803D;
+  --status-warning: #B45309;
+  --status-danger: #BE123C;
+
+  /* Standardized Radius System */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Subtle 3D Depth & Elevation Tokens (Light from Top) */
+  --elevation-0: none;
+  --elevation-1: 0 2px 5px -1px rgba(18, 60, 53, 0.05), 0 1px 2px -1px rgba(18, 60, 53, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  --elevation-2: 0 4px 14px -2px rgba(18, 60, 53, 0.07), 0 2px 6px -1px rgba(18, 60, 53, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --elevation-3: 0 10px 25px -4px rgba(18, 60, 53, 0.10), 0 4px 10px -3px rgba(18, 60, 53, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  --elevation-hero: 0 12px 30px -5px rgba(18, 60, 53, 0.22), 0 4px 12px -2px rgba(18, 60, 53, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  --elevation-floating: 0 12px 30px -6px rgba(18, 60, 53, 0.14), 0 4px 12px -2px rgba(18, 60, 53, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --elevation-modal: 0 25px 50px -12px rgba(18, 60, 53, 0.22), 0 12px 24px -8px rgba(18, 60, 53, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-family: var(--font-app);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior-y: none;
+  touch-action: manipulation;
+  font-size: 16.5px;
+  line-height: 1.7;
+  letter-spacing: normal;
+}
+
+/* Persian Font Classes & Dynamic Data Attributes */
+html[data-font="vazir"], body.font-vazir {
+  --font-app: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html[data-font="shabnam"], body.font-shabnam {
+  --font-app: 'Shabnam', 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Shabnam', 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html[data-font="sahel"], body.font-sahel {
+  --font-app: 'Sahel', 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Sahel', 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html[data-font="samim"], body.font-samim {
+  --font-app: 'Samim', 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Samim', 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html[data-font="parastoo"], body.font-parastoo {
+  --font-app: 'Parastoo', 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Parastoo', 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Explicit Independent Font Preview Classes */
+.font-preview-vazir, .font-preview-vazir * {
+  font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.font-preview-shabnam, .font-preview-shabnam * {
+  font-family: 'Shabnam', 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.font-preview-sahel, .font-preview-sahel * {
+  font-family: 'Sahel', 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.font-preview-samim, .font-preview-samim * {
+  font-family: 'Samim', 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.font-preview-parastoo, .font-preview-parastoo * {
+  font-family: 'Parastoo', 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Ensure all form controls and child elements use active app font */
+button, input, select, textarea, optgroup, option {
+  font-family: inherit;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Standardized Tactile Press Feedback (1px displacement + subtle scale) */
+button:active:not(:disabled), 
+.btn-press:active:not(:disabled) {
+  transform: translateY(1px) scale(0.985);
+  transition: transform 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 3D Depth Classes */
+.depth-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elevation-2);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+}
+
+.depth-card-subtle {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--elevation-1);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.depth-card-elevated {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--elevation-3);
+}
+
+.depth-hero {
+  border-radius: var(--radius-xl);
+  box-shadow: var(--elevation-hero);
+  border: 1px solid rgba(12, 46, 41, 0.9);
+}
+
+/* 3D Buttons */
+.depth-btn-primary {
+  background-color: #123C35;
+  color: #FFFFFF;
+  border: 1px solid #0C2E29;
+  box-shadow: 0 3px 8px rgba(18, 60, 53, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: all 0.14s ease;
+}
+
+.depth-btn-primary:hover {
+  background-color: #0C2E29;
+  box-shadow: 0 5px 12px rgba(18, 60, 53, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.depth-btn-primary:active {
+  transform: translateY(1px) scale(0.985);
+  box-shadow: 0 1px 3px rgba(18, 60, 53, 0.2), inset 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.depth-btn-gold {
+  background-color: #C49A5A;
+  color: #FFFFFF;
+  border: 1px solid #B08644;
+  box-shadow: 0 3px 8px rgba(196, 154, 90, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  transition: all 0.14s ease;
+}
+
+.depth-btn-gold:hover {
+  background-color: #B08644;
+  box-shadow: 0 5px 12px rgba(196, 154, 90, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.32);
+}
+
+.depth-btn-gold:active {
+  transform: translateY(1px) scale(0.985);
+  box-shadow: 0 1px 3px rgba(196, 154, 90, 0.2), inset 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* 3D Inputs */
+.depth-input {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  box-shadow: inset 0 1px 2px rgba(18, 60, 53, 0.03);
+  transition: border-color 0.14s ease, box-shadow 0.14s ease;
+}
+
+.depth-input:focus {
+  border-color: #123C35;
+  box-shadow: 0 0 0 3px rgba(18, 60, 53, 0.12), inset 0 1px 1px rgba(0, 0, 0, 0.02);
+  outline: none;
+}
+
+:where(button, a, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid #C49A5A;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  button:active:not(:disabled),
+  .btn-press:active:not(:disabled) {
+    transform: none !important;
+  }
+}
+
+/* Subtle Inner Highlight for Premium Feel */
+.inner-highlight {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), var(--elevation-2);
+}
+
+/* Custom Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D9DED9;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C49A5A;
+}
+
+/* Smooth Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

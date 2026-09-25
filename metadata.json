@@ -1,0 +1,8 @@
+{
+  "name": "Hooshyar",
+  "description": "هوشیار: همراه روزانه شما برای زندگی منظم‌تر - ابزارهای تقویم فارسی و هجری، اوقات شرعی و اذان، قرآن، یادداشت‌ها و مدیریت امور مالی و شخصی.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

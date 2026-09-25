@@ -1,0 +1,22 @@
+{
+  "totalEntries": 7242,
+  "byVolume": {
+    "1": {
+      "entries": 2229,
+      "issues": 2162
+    },
+    "2": {
+      "entries": 1483,
+      "issues": 1429
+    },
+    "3": {
+      "entries": 1752,
+      "issues": 1703
+    },
+    "4": {
+      "entries": 1778,
+      "issues": 1652
+    }
+  },
+  "fileSizeMb": 10.08
+}
